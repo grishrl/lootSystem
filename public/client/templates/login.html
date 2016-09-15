@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" ng-controller='loginController as loginCtrl'>
+      <div ng-controller="createUserController as createCtrl">
+
+      <div ng-init='_Check'>
+        <div class="row">
+          <div class="text-center">
+            <button type='button' id='swapButton' ng-class="_Check ? 'btn btn-lrg btn-primary':'btn btn-lrg btn-default'"
+            data-toggle="modal" ng-click="_Check = (_Check ? false:true)" >{{_Check ?'Existing User Login':'Create New Account'}}
+          </button>
+          </div>
+        </div>
+        <div class="row">
+            <div style="margin-top:5px" ng-hidden="{{visible}}" class="{{classInfo}}">{{message}}</div>
+        </div>
+
+        <div class="customHide" ng-hide="_Check">
+          <div>
+          <div class="row" style="margin-top:10px" >
+            <div class="panel panel-primary">
+              <div class="panel-heading"><div class="panel-title">Existing User Login</div></div>
+              <div class="panel-body"><form role="form">
+                <div class="form-group">
+                  <label for="user">User Name:</label>
+                  <input type="text" class="form-control" id="userName" ng-model=user.name>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="border form-control" id="password" ng-model=user.password>
+                </div>
+              </form></div>
+            </div>
+
+        </div>
+        <div class="row">
+          <div class="text-center"><button type='submit' id="log" class="btn btn-lrg btn-primary" data-toggle="modal" ng-click="login(user)" >Login</button></div>
+        </div>
+      </div>
+        </div>
+      <div class="customHide" ng-hide="!_Check">
+        <div style="margin-top:10px" class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading"><div class="panel-title">New User Account</div></div>
+            <div class="panel-body"><form role="form">
+              <div class="form-group">
+                <label for="user">User Name:</label>
+                <input type="text" class="form-control" id="userName" ng-model=createUser.name>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="{{border}} form-control" id="password" ng-model=createUser.password>
+              </div>
+              <div class="form-group">
+                <label for="password">Confirm Password:</label>
+                <input type="password" class="{{border}} form-control" id="password" ng-model=createUser.confirmPassword>
+              </div>
+            </form></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="text-center"><button type='submit' id="create" class="btn btn-lrg btn-default" data-toggle="modal" ng-click="create(createUser)" >Create Account</button></div>
+        </div>
+
+      </div>
+      <script>
+      $(document).on('keypress',function(e){
+        if(e.which==13){
+          var x = $("#swapButton").text().trim();
+          if(x=="Create New Account"){
+            $("#log").click();
+          }else if(x=='Existing User Login'){
+            console.log('hi');
+            $("#create").click();
+          }
+        }
+
+
+      })
+      </script>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+
+</div>

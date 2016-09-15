@@ -1,0 +1,16 @@
+      <div class="modal-header">
+        <!-- TOP close button -->
+        <h4 class="modal-title">Create a new list</h4>
+      </div>
+      <div class="modal-body">
+        <form name="newParty" novalidate>
+          <div class="form-group">
+            <label for="listname">List Name:</label>
+            <input type="text" class="form-control" id="listName" ng-model=list.name>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="ok(list)">Submit</button>
+        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+      </div>

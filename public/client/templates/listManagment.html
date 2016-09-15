@@ -1,0 +1,31 @@
+<div class="container-fluid" ng-controller='listDropdownController'>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1>List Management</h1>
+      <div class="row">
+        <div class="col-md-2">
+          <groupdropdown-lists></groupdropdown-lists>
+      </div>
+        <div class="col-md-2">
+          <div class="dropdown" ng-controller="currentListController">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{listWarning}}<span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+              <li ng-repeat="list in lists"><a ui-sref=".listInfo({groupObj:list})">{{list.name}}</a></li>
+            </ul>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div ng-controller="createListModalController" class="col-md-3">
+            <button type='button' class="btn btn-lrg btn-primary" ng-disabled="!groupClicked" data-toggle="modal" ng-click="open(groupSelected)" >New List</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div ui-view></div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

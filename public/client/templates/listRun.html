@@ -1,0 +1,31 @@
+<div class="container-fluid" ng-controller='listDropdownController'>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1>Loot!</h1>
+      <div class="row">
+        <div class="col-md-2">
+          <groupdropdown-lists></groupdropdown-lists>
+        </div>
+        <div class="col-md-2">
+          <div class="dropdown" ng-controller="currentListController">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{listWarning}}<span class="caret"></span></button>
+            <ul class="dropdown-menu" >
+              <li ng-repeat="list in lists"><a ui-sref=".lootPanel({groupObj:list})">{{list.name}}</a></li>
+            </ul>
+            </ul>
+          </div>
+
+        </div>
+        <div class="col-md-2">
+          <button ng-disabled="!groupClicked" ng-controller='permalinkModalController' class="btn btn-primary" type="button" ng-Click='open(groupSelected)'>PermaLink <span class="glyphicon glyphicon-link"></span></button>
+        </div>
+
+      </div>
+
+      <div ui-view></div>
+
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

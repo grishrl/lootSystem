@@ -1,0 +1,80 @@
+<div ng-controller='listInfoController'>
+<div>
+    <div style="margin-top:10px" class="panel panel-default">
+      <div  class="panel-heading">
+        <h3 class="panel-title">{{groupName}} > {{listName}}</h3>
+      </div>
+      <div class="panel-body">
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="row">
+            <div class="col-md-2">Member Name</div>
+            <div class="col-md-2">Member Note</div>
+            <div class="col-md-2">
+              Activate/Decative Member
+          </div>
+            <div class="col-md-2">
+              Loot BTN
+            </div>
+            <div class="col-md-2">
+              Loot Note
+            </div>
+          </div>
+          </li>
+          <li ng-class="{activeLooter:item.active}" class="list-group-item" ng-repeat="item in list1">
+            <div class="row">
+            <div class="col-md-2">{{item.label}}</div>
+            <div class="col-md-2">{{item.note}}</div>
+            <div class="col-md-2">
+              <button ng-show="!item.active" type='button' ng-click="activate(item.userID,'activate')" class="btn btn-default btn-sm">
+                <i title="Activate User" class="fa fa-thumbs-up"></i>
+              </button>
+              <button ng-show="item.active" type='button' ng-click="activate(item.userID,'deactivate')" class="btn btn-default btn-sm">
+                <i title="Deactivate user" class="fa fa-thumbs-down" aria-hidden="true"></i>
+              </button>
+          </div>
+            <div class="col-md-2">
+              <button ng-disabled="!item.active" type='button' ng-click="assignLoot(item,lootNote)" class="btn btn-default btn-sm"><span title="Give Loot" class="fa fa-university"></span>Give Loot</button>
+            </div>
+            <div class="col-md-2">
+              <input type="text" ng-model="item.lootNote"></input>
+            </div>
+          </div>
+        </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="margin-top:10px" class="panel panel-default historyBoxes">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{listName}} History</h3>
+      </div>
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Admin</th>
+                  <th>Action</th>
+                  <th>Acted Upon</th>
+                  <th>Note</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  ng-repeat="obj in listHist | orderBy: '-createdAt'">
+                  <th>{{obj.actor}}</th>
+                  <th>{{obj.action}}</th>
+                  <th>{{obj.actedUpon}}</th>
+                  <th>{{obj.note}}</th>
+                  <th>{{obj.createdAt | date : 'MM/dd/yyyy hh:mm'}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>

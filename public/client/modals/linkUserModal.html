@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <!-- TOP close button -->
+  <h4 class="modal-title">Link User</h4>
+</div>
+<div class="modal-body">
+  <div class="well"><p>'Enter user account IDs here, IDs are unique - this will link the user with the group and lists.'</p></div>
+  <form name="addUser" novalidate>
+    <div class="form-group">
+      <label for="membername">Account ID:</label>
+      <input type="text" class="form-control" id="groupName" ng-model=linkName>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="ok(linkName)">Submit</button>
+  <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+</div>

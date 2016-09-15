@@ -1,0 +1,21 @@
+Unique userID required: 1
+Unspecified user account error: 2
+Username/Password cannot be blank: 3
+User Account created successfully: 4
+Username / Password incorrect: 5
+User Authenticated OK: 6
+User ID not found: 7
+Not currently authenticated: 8 // time out or no token or token miss-match
+Error inserting group: 9
+Group created: 10
+Group Query Failed: 11 //generic
+Group Query Success: 12 //generic
+Data sucessfully returned: 13 //generic
+Group Updated Success: 14
+Error saving list: 15
+List created successfully: 16
+List query error: 17
+List query success: 18
+List modify error: 19
+List modify success: 20
+Admin rights required: 21

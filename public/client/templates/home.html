@@ -1,0 +1,70 @@
+<div class="container-fluid" ng-controller="homeHistoryController">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1>Welcome {{userName}}</h1>
+      <div style="margin-top:10px" class="panel panel-default historyBoxes">
+        <div  class="panel-heading">
+          <h3 class="panel-title">My Loot Recieved History</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Group</th>
+                <th>List</th>
+                <th>Action</th>
+                <th>Master Looter</th>
+                <th>Note</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="obj in history | orderBy:'-createdAt'">
+                <th>{{obj.groupID}}</th>
+                <th>{{obj.listID}}</th>
+                <th>{{obj.action}}</th>
+                  <th>{{obj.actor}}</th>
+                <th>{{obj.note}}</th>
+                <th>{{obj.createdAt | date : 'MM/dd/yyyy hh:mm' }}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="margin-top:10px" class="panel panel-default historyBoxes">
+        <div  class="panel-heading">
+          <h3 class="panel-title">My System History</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Admin</th>
+                <th>Group</th>
+                <th>List</th>
+                <th>Type</th>
+                <th>Member</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="obj in otherHistory | orderBy:'-createdAt'">
+                <th>{{obj.actor}}</th>
+                <th>{{obj.groupID}}</th>
+                <th>{{obj.listID}}</th>
+                <th>{{obj.action}}</th>
+                <th>{{obj.actedUpon}}</th>
+                <th>{{obj.createdAt | date : 'MM/dd/yyyy hh:mm' }}</th>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

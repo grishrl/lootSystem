@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      </div>
+        <a class="navbar-brand" href="#">Loot System<sub>Beta!<sub>0.1.1</sub></sub></a>
+          <div id="navbar">
+            <ul auto-active class="nav navbar-nav">
+              <li><a ui-sref="home">Home</a></li>
+              <li><a ui-sref="group">Parties</a></li>
+              <li><a ui-sref="manageLists">Manage Lists</a></li>
+              <li><a ui-sref="loot">Loot</a></li>
+              <!--<li><a ui-sref="messageCenter">Message Center <span class="badge">{{messageCount}}</span></a></li>-->
+              <li><a ui-sref="changeLog">Change Log</a></li>
+            </ul>
+            <div class="pull-right">
+              <ul auto-active class="nav navbar-nav">
+                <li ng-show="!authenticated"><a ui-sref="signin">Log In</a></li>
+                <li ng-show="authenticated"><a href="" ng-controller='logOutController as logoutCtrl' ng-click="logOut()">Log Out</a></li>
+              </ul>
+            </div>
+          </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <!-- TOP close button -->
+  <h4 class="modal-title">Add User To Group</h4>
+</div>
+<div class="modal-body">
+  <div class="well"><p>'Enter a name below - if the user has an account with LootSystem get their ID and enter it here, IDs are unique - this will link the user with the group and lists.  Otherwise enter a name - if the person joins later they can be linked then.'</p></div>
+  <form name="addUser" novalidate>
+    <div class="form-group">
+      <label for="membername">Group Member:</label>
+      <input type="text" class="form-control" id="groupName" ng-model=member>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="ok(member)">Submit</button>
+  <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+</div>

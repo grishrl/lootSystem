@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <!-- TOP close button -->
+  <h4 class="modal-title">Add User To Group</h4>
+</div>
+<div class="modal-body">
+  <div class="well"><p>'Select a linked user to grant admin privledges to.'</p></div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <ul class='list-group'>
+        <li class="list-group-item">Currnet Admins</li>
+        <li ng-repeat="admin in adList" class="list-group-item">{{admin.userName}}</li>
+      </ul>
+  </div>
+  </div>
+  <form name="addUser" novalidate>
+    <div class="form-group-inline">
+
+      <div class = 'row'>
+        <div class="col-md-2">
+          <label for="membername">Group Member:</label>
+        </div>
+
+        <div class="col-md-2">
+          <div class='dropdown'>
+          <button type='button' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>Linked Users<span class='caret'></span></button>
+          <ul class='dropdown-menu'>
+            <li ng-repeat='dat in drop'><a ng-Click='itemSelect(dat)'>{{dat.userName}}</a></li>
+          </ul>
+        </div>
+        </div>
+        <div class="col-md-1"><h4>{{selection.userName}}</h4></div>
+      </div>
+
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="ok()">Submit</button>
+  <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+</div>

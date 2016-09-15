@@ -1,0 +1,6 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{buttonText}}<span class="caret"></span></button>
+  <ul class="dropdown-menu" >
+    <li ng-repeat="group in groups"><a ng-Click='passGroup(group)'>{{group.name}}</a></li>
+  </ul>
+</div>

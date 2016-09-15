@@ -1,0 +1,48 @@
+<div ng-controller='permalinkListController'>
+<div>
+    <div style="margin-top:10px" class="panel panel-default">
+      <div  class="panel-heading">
+        <h3 class="panel-title">{{groupName}} > {{listName}}</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+
+          <li ng-class="{activeLooter:item.active}" class="list-group-item" ng-repeat="item in list1"><div class="row">
+            <div class="col-md-2">{{item.user}}</div>
+            <div class="col-md-2"></div>
+          </div>
+        </li>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="margin-top:10px" class="panel panel-default historyBoxes">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{listName}} History</h3>
+      </div>
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Admin</th>
+                  <th>Action</th>
+                  <th>Acted Upon</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  ng-repeat="obj in listHist | orderBy: '-createdAt'">
+                  <th>{{obj.actor}}</th>
+                  <th>{{obj.action}}</th>
+                  <th>{{obj.actedUpon}}</th>
+                  <th>{{obj.createdAt | date : 'MM/dd/yyyy hh:mm'}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>

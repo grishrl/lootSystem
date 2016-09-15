@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <!-- TOP close button -->
+  <h4 class="modal-title">Permalink</h4>
+</div>
+<div class="modal-body">
+  <div class="well"><p>Do you want to enable permalink for this group?</p></div>
+  <form name="addUser" novalidate>
+    <div class="form-group">
+      <div class="radio">
+        <label class="radio-inline"><input type="radio" name='enabled' ng-value='true' ng-model='status'>Enabled.</label>
+        <label class="radio-inline"><input type="radio" name='enabled' ng-value ='false' ng-model='status'>Disabled.</label>
+      </div>
+    </div>
+    <label>Share this URL:</label>
+    <input type="text" class="form-control" id="permaLink" ng-model='permaLink' readonly="true">
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" ng-click="ok(status)">Submit</button>
+  <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+</div>

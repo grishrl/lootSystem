@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h1>Party Management</h1>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Current Groups<span class="caret"></span></button>
+              <ul class="dropdown-menu" ng-controller='groupDropdownController'>
+                <li ng-repeat="group in groups"><a ui-sref=".groupInfo({groupObj:group})">{{group.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div ng-controller="createGroupModalController" class="col-md-3">
+            <button type='button' class="btn btn-lrg btn-primary" data-toggle="modal" ng-click="open()" >New Group</button>
+          </div>
+
+        </div>
+        <div class="row" ui-view></div>
+      </diV>
+    <div class="col-md-1"></div>
+</div>
+</div>

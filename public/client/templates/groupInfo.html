@@ -1,0 +1,90 @@
+<div ng-controller='groupInfoController'>
+    <div style="margin-top:10px" class="row">
+    <div class="col-md-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">Group Name</div>
+        <div class="panel-body">{{group.name}}</div>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">Group Description</div>
+        <div class="panel-body">{{group.description}}</div>
+      </div>
+    </div>
+    </div>
+
+
+<div class="row">
+  <div class="col-md-10">
+    <div style="margin-top:10px" class="panel panel-default">
+      <div  class="panel-heading">
+        <div class="row">
+          <h3 class="col-md-2 panel-title">Members</h3>
+          <div class="col-md-2">Date Created: {{group.timestamp | date : MMM/DD/yyyy}}</div>
+        </div>
+
+      </div>
+      <div class="panel-body">
+        <ul class="list-group" ng-controller="linkUserModalController">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-2">Name</div>
+              <div class="col-md-2"></div>
+              <div class="col-md-2">Functions</div>
+              <div class="col-md-2">Member Note</div>
+            </div>
+          </li>
+          <li ng-repeat="member in members" class="list-group-item">
+
+            <div class="row">
+              <div class="col-md-2">{{member.userName}}</div>
+              <div class="col-md-2"></div>
+              <div class="col-md-2">
+                <button type='button' class="btn btn-default btn-sm" ng-click='remove(member, group)'><span title="Remove User" class="glyphicon glyphicon-remove"></span></button>
+                <button ng-show="member.noLink" type='button' class="btn btn-default btn-sm" ng-click='open(member, group)'><span title="Link User" class="glyphicon glyphicon-link"></span></button>
+              </div>
+              <div class="col-md-2"><a href="#" editable-text="member.note" onbeforesave="userNote($data,member,group)">{{member.note || "Note"}}</a></div>
+          </div>
+        </li>
+
+        </ul>
+        <div class = "row">
+        <div ng-controller ="addUserModalController" class="col-md-3">
+        <button type='button' class="btn btn-lrg btn-primary" data-toggle="modal" ng-click="open(group)" >Add User</button>
+      </div>
+      <div ng-controller ="adminUserModalController" class="col-md-3">
+      <button type='button' class="btn btn-lrg btn-primary" data-toggle="modal" ng-click="open(group)" >Admin</button>
+    </div>
+    </div>
+      </div>
+      </div>
+        <div style="margin-top:10px" class="panel panel-default historyBoxes">
+          <div  class="panel-heading">
+            <h3 class="panel-title">{{group.name}} History</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Admin</th>
+                  <th>Action</th>
+                  <th>Acted Upon</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  ng-repeat="obj in groupHist | orderBy: '-createdAt'">
+                  <th>{{obj.actor}}</th>
+                  <th>{{obj.action}}</th>
+                  <th>{{obj.actedUpon}}</th>
+                  <th>{{obj.createdAt | date : 'MM/dd/yyyy hh:mm'}}</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
